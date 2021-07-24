@@ -1,0 +1,9 @@
+.btn__function__wrapper {
+  height: 30vh;
+  background: #cb997e;
+  display: flex;
+  font-size: 17px;
+  font-family: sans-serif;
+  font-weight: lighter;
+  flex-wrap: wrap;
+}
