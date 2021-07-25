@@ -10,6 +10,8 @@ class BtnClass extends Component {
       loggedIn: false,
       users: ["Josh", "Samantha", "Bob", "Alice"],
       message: null,
+      emails: [],
+      loading: true,
     };
   }
 
@@ -33,9 +35,25 @@ class BtnClass extends Component {
     this.setState({ users: this.state.users.filter((user) => name !== user) });
   };
 
-  componentDidMount() {
+  fetchEmails = () => {
     // api call
-    console.log("Component did mount");
+    const url = "https://randomuser.me/api/";
+    const url_call = 4;
+    this.state.emails = [];
+    this.setState({ loading: true });
+    for (var i = 0; i < url_call; i++) {
+      fetch(url)
+        .then((res) => res.json())
+        .then((user) => {
+          this.setState({
+            emails: [...this.state.emails, user.results[0].email],
+          });
+        });
+    }
+  };
+
+  componentDidMount() {
+    this.fetchEmails();
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -50,17 +68,17 @@ class BtnClass extends Component {
   }
 
   componentDidUpdate() {
-    alert("Component did update");
+    // alert("Class did update");
   }
 
   componentWillUnmount() {
-    alert("Unmounted");
+    // alert("Unmounted");
   }
   render() {
     return (
       <div className="btn__class__wrapper">
         <h1>Class</h1>
-        Count: {this.props.count}
+        Count: {this.props.count} (inherited from parent)
         {this.state.loggedIn ? (
           <div className="logoutContainer">
             <h1>You are logged in </h1>
@@ -85,6 +103,17 @@ class BtnClass extends Component {
               </button>
             </div>
           ))}
+        </div>
+        <div className="emails">
+          <h1> Fetching Emails</h1>
+          <ul>
+            {this.state.emails.map((email) => (
+              <div>
+                <li> {email}</li>
+              </div>
+            ))}
+          </ul>
+          <button onClick={this.fetchEmails}>Re-fetch new emails</button>
         </div>
       </div>
     );

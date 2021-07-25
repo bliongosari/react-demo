@@ -1,5 +1,15 @@
+* {
+  align-items: center;
+}
+
+.app {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 .btn__class__wrapper {
-  height: 30vh;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
   background: #ddbea9;
   display: flex;
   font-size: 17px;
