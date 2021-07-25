@@ -22,3 +22,30 @@ h1 {
   text-align: center;
   align-items: center;
 }
+
+.loginContainer {
+  margin: 0 auto;
+}
+
+.logoutContainer {
+  margin: 0 auto;
+}
+
+.logoutContainer h1 {
+  color: green;
+  font-size: 17px;
+}
+
+.loginContainer h1 {
+  color: red;
+  font-size: 17px;
+}
+
+.users {
+  display: flex;
+  margin: 10px;
+  flex-direction: row;
+  font-size: 12px;
+  justify-content: space-around;
+  text-align: center;
+}
