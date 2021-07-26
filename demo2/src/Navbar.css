@@ -1,0 +1,7 @@
+.childComponent {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background-color: olivedrab;
+}

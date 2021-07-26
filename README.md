@@ -24,3 +24,10 @@ Class Components
 Demo 2
 
 Testing Redux
+
+-Redux using React Toolkit (Slice)
+-Used react-persist
+
+Demo 3
+
+Node.js React authentication (login/logout stack) using Redux
